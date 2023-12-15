@@ -62,16 +62,16 @@ Word *mostLetter(char *string) {
         }
     }
 
-    Node *tenpHighSizeNode = getNode(0, list);
+    Node *tempHighSizeNode = getNode(0, list);
     for (int i = 1; i < list->size; ++i) {
-        if (((Word *) getNode(i, list)->data)->size > ((Word *) tenpHighSizeNode->data)->size) {
-            tenpHighSizeNode = getNode(i, list);
+        if (((Word *) getNode(i, list)->data)->size > ((Word *) tempHighSizeNode->data)->size) {
+            tempHighSizeNode = getNode(i, list);
         }
     }
 
     Word *highestNode = malloc(sizeof(Word));
-    highestNode->letter = ((Word *) tenpHighSizeNode->data)->letter;
-    highestNode->size = ((Word *) tenpHighSizeNode->data)->size;
+    highestNode->letter = ((Word *) tempHighSizeNode->data)->letter;
+    highestNode->size = ((Word *) tempHighSizeNode->data)->size;
 
     deleteList(list);
     return highestNode;
