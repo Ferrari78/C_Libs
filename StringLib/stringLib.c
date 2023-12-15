@@ -70,8 +70,8 @@ Word *mostLetter(char *string) {
     }
 
     Word *highestNode = malloc(sizeof(Word));
-    highestNode->letter = ((Word *) highSizeNode->data)->letter;
-    highestNode->size = ((Word *) highSizeNode->data)->size;
+    highestNode->letter = ((Word *) tenpHighSizeNode->data)->letter;
+    highestNode->size = ((Word *) tenpHighSizeNode->data)->size;
 
     deleteList(list);
     return highestNode;
