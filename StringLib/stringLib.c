@@ -36,25 +36,28 @@ int countWords(const char *string) {
     return counter;
 }
 
-Word *mostLetter(char *string) {
+Letter *mostLetter(char *string) {
     List *list = create_List();
 
     for (int i = 0; string[i] != '\0'; i++) {
+        if( string[i] == ' '){
+            continue;
+        }
         string[i] = tolower(string[i]);
         bool found = false;
 
         for (int j = 0; j < list->size; j++) {
             Node *tempNode = getNode(j, list);
 
-            if (string[i] == ((Word *) tempNode->data)->letter) {
-                ((Word *) tempNode->data)->size++;
+            if (string[i] == ((Letter *) tempNode->data)->letter) {
+                ((Letter *) tempNode->data)->size++;
                 found = true;
                 break;
             }
         }
 
         if (!found) {
-            Word *temp = malloc(sizeof(Word));
+            Letter *temp = malloc(sizeof(Letter));
             temp->letter = string[i];
             temp->size = 1;
             add(list, temp, STRUCT);
@@ -63,14 +66,14 @@ Word *mostLetter(char *string) {
 
     Node *tempHighSizeNode = getNode(0, list);
     for (int i = 1; i < list->size; ++i) {
-        if (((Word *) getNode(i, list)->data)->size > ((Word *) tempHighSizeNode->data)->size) {
+        if (((Letter *) getNode(i, list)->data)->size > ((Letter *) tempHighSizeNode->data)->size) {
             tempHighSizeNode = getNode(i, list);
         }
     }
 
-    Word *highestNode = malloc(sizeof(Word));
-    highestNode->letter = ((Word *) tempHighSizeNode->data)->letter;
-    highestNode->size = ((Word *) tempHighSizeNode->data)->size;
+    Letter *highestNode = malloc(sizeof(Letter));
+    highestNode->letter = ((Letter *) tempHighSizeNode->data)->letter;
+    highestNode->size = ((Letter *) tempHighSizeNode->data)->size;
 
     deleteList(list);
     return highestNode;

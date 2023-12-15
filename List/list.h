@@ -5,6 +5,8 @@
 #ifndef LINKEDLIST_LIST_H
 #define LINKEDLIST_LIST_H
 
+extern int debug;
+
 enum types {
     INT = 1,
     STRING,

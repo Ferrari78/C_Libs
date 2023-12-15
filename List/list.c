@@ -6,7 +6,7 @@
 #include "list.h"
 #include <string.h>
 
-
+int debug = 0;
 /*
  * Create a list
  */
@@ -15,7 +15,9 @@ List *create_List() {
     list->size = 0;
     list->start = NULL;
     list->end = NULL;
-    printf("List was created\n");
+    if (debug) {
+        printf("List was created\n");
+    }
     return list;
 }
 
@@ -41,8 +43,10 @@ void add(List *list, void *data, enum types type_data) {
         new_node->before = list->end;
         new_node->next = NULL;
     }
-    //printf("Node was added to List with value ");
-    // printNodeData(new_node);
+    if(debug) {
+        printf("Node was added to List with value ");
+        printNodeData(new_node);
+    }
     list->end = new_node;
     list->size++;
 

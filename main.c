@@ -5,8 +5,9 @@
 int main() {
 
     List *list = create_List();
-    char b[255] = "Hello World";
-    printf("%d", countUpperCases(b));
+    char b[255] = "Nessie's are cute";
+    printf("%c\n", mostLetter(b)->letter);
+    printf("%d", mostLetter(b)->size);
 /*    int* a = (int *) 23;
     add(list, b, STRING);
     add(list,  a, INT);
