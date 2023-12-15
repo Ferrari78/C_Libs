@@ -42,7 +42,7 @@ void add(List *list, void *data, enum types type_data) {
         new_node->next = NULL;
     }
     //printf("Node was added to List with value ");
-   // printNodeData(new_node);
+    // printNodeData(new_node);
     list->end = new_node;
     list->size++;
 
@@ -94,7 +94,7 @@ int searchData(List *list, void *data, enum types dataTypes) {
             } else if (temp->type_data == 3 && temp->data == data) {
                 position = i;
                 break;
-            }else if(temp->type_data > 4){
+            } else if (temp->type_data > 4) {
                 return -1;
             }
         }
@@ -109,7 +109,7 @@ int searchData(List *list, void *data, enum types dataTypes) {
  * @param node the list item
  */
 void printNodeData(Node *node) {
-    if(node == NULL){
+    if (node == NULL) {
         return;
     }
     switch (node->type_data) {
@@ -127,9 +127,9 @@ void printNodeData(Node *node) {
     }
 }
 
-Node* getNode(int position, List* list){
+Node *getNode(int position, List *list) {
     Node *temp = list->start;
-    if(position == 0){
+    if (position == 0) {
         return temp;
     }
     for (int i = 0; i < position; i++) {
@@ -139,9 +139,9 @@ Node* getNode(int position, List* list){
     return temp;
 }
 
-void deleteList(List* list){
+void deleteList(List *list) {
     for (int i = 0; i < list->size; ++i) {
-        remove_Node(list,i);
+        remove_Node(list, i);
     }
     free(list);
 }

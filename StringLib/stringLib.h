@@ -8,10 +8,12 @@
 typedef struct {
     char letter;
     int size;
-}Word;
+} Word;
 
-int countUpperCases(const char* string);
-int countWords(const char* string);
-Word * mostLetter(char* string);
+int countUpperCases(const char *string);
+
+int countWords(const char *string);
+
+Word *mostLetter(char *string);
 
 #endif //AUFGABE8_WORDCOUNTER_H

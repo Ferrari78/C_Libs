@@ -34,12 +34,12 @@ void printNodeData(Node *node);
 
 void removeNode(List *list, int position);
 
-int searchData(List *list,void* data, enum types dataTypes);
+int searchData(List *list, void *data, enum types dataTypes);
 
 void linkNodes(List *list, Node *node);
 
-Node* getNode(int position, List* list);
+Node *getNode(int position, List *list);
 
-void deleteList(List* list);
+void deleteList(List *list);
 
 #endif //LINKEDLIST_LIST_H
