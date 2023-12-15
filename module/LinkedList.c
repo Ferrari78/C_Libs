@@ -27,19 +27,22 @@ List *create_List() {
  * @param type_data is the type of the saved data.
  */
 void add(List *list, void *data, enum types type_data) {
+
     Node *new_node = (Node *) malloc(sizeof(Node));
     new_node->data = data;
     new_node->type_data = type_data;
+
     if (list->start == NULL) {
         list->start = new_node;
         new_node->next = NULL;
         new_node->before = NULL;
     } else {
-        new_node->before = list->end;
         list->end->next = new_node;
+        new_node->before = list->end;
+        new_node->next = NULL;
     }
     printf("Node was added to List with value ");
-    printNodeData(new_node);
+   // printNodeData(new_node);
     list->end = new_node;
     list->size++;
 
@@ -66,23 +69,23 @@ void remove_Node(List *list, int position) {
     for (int i = 1; i < position; ++i) {
         temp = temp->next;
     }
-    connect(list,temp);
+    connect(list, temp);
     free(temp);
     list->size--;
 }
 
-int searchData(List *list,void* data, enum types dataTypes){
+int searchData(List *list, void *data, enum types dataTypes) {
     Node *temp = list->start;
-    int position= 0;
+    int position = 0;
     for (int i = 1; i <= list->size; i++) {
-        if(temp->type_data == dataTypes){
-            if(temp->type_data == 1 && temp->data == data){
+        if (temp->type_data == dataTypes) {
+            if (temp->type_data == 1 && temp->data == data) {
                 position = i;
                 break;
-            }else if(temp->type_data == 2 && strcmp(temp->data,data) == 0){
+            } else if (temp->type_data == 2 && strcmp(temp->data, data) == 0) {
                 position = i;
                 break;
-            }else if(temp->type_data == 3 && temp->data == data){
+            } else if (temp->type_data == 3 && temp->data == data) {
                 position = i;
                 break;
             }
@@ -98,6 +101,9 @@ int searchData(List *list,void* data, enum types dataTypes){
  * @param node the list item
  */
 void printNodeData(Node *node) {
+    if(node == NULL){
+        return;
+    }
     switch (node->type_data) {
         case 1:
             printf("%d\n", node->data);
@@ -112,3 +118,23 @@ void printNodeData(Node *node) {
             printf("(not supported Datatype)\n");
     }
 }
+
+Node* getNode(int position, List* list){
+    Node *temp = list->start;
+    if(position == 0){
+        return temp;
+    }
+    for (int i = 0; i < position; i++) {
+        temp = temp->next;
+    }
+
+    return temp;
+}
+
+void deleteList(List* list){
+    for (int i = 0; i < list->size; ++i) {
+        free(getNode(i,list));
+    }
+    free(list);
+}
+

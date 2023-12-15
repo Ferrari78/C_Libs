@@ -8,7 +8,8 @@
 enum types {
     INT = 1,
     STRING,
-    FLOAT
+    FLOAT,
+    STRUCT
 };
 
 typedef struct node {
@@ -34,5 +35,9 @@ void printNodeData(Node *node);
 void remove_Node(List *list, int position);
 
 int searchData(List *list,void* data, enum types dataTypes);
+
+Node* getNode(int position, List* list);
+
+void deleteList(List* list);
 
 #endif //LINKEDLIST_LINKEDLIST_H
