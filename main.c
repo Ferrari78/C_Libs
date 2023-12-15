@@ -1,10 +1,13 @@
 #include <stdio.h>
-#include "module/LinkedList.h"
+#include "list.h"
+#include "stringLib.h"
 
 int main() {
+
     List *list = create_List();
     char b[255] = "hallo";
-    int* a = (int *) 23;
+    printf("%c", mostLetter(b)->letter);
+/*    int* a = (int *) 23;
     add(list, b, STRING);
     add(list,  a, INT);
     add(list,"Hallo",STRING);
@@ -12,7 +15,7 @@ int main() {
     add(list,"asd",STRING);
     add(list,"af",STRING);
     printNodeData(list->end);
-    deleteList(list);
+    deleteList(list);*/
 
     return 0;
 }

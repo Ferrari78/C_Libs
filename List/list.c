@@ -3,7 +3,7 @@
 //
 #include <stdlib.h>
 #include <stdio.h>
-#include "LinkedList.h"
+#include "list.h"
 #include <string.h>
 
 
@@ -28,7 +28,7 @@ List *create_List() {
  */
 void add(List *list, void *data, enum types type_data) {
 
-    Node *new_node = (Node *) malloc(sizeof(Node));
+    Node *new_node = malloc(sizeof(Node));
     new_node->data = data;
     new_node->type_data = type_data;
 
@@ -48,13 +48,19 @@ void add(List *list, void *data, enum types type_data) {
 
 }
 
-void connect(List *list, Node *deletedNode) {
-    if (list->start == deletedNode) {
-        list->start = deletedNode->next;
-    } else if (list->end == deletedNode) {
-        list->end = deletedNode->before;
+/* Connect the node before and after the specified node.
+ *
+ * Be careful with this function because of memory leaks.
+ * @param list List item
+ * @param node The node which lies in the middle
+ */
+void linkNodes(List *list, Node *node) {
+    if (list->start == node) {
+        list->start = node->next;
+    } else if (list->end == node) {
+        list->end = node->before;
     } else {
-        deletedNode->before = deletedNode->next;
+        node->before = node->next;
     }
 }
 
@@ -64,12 +70,12 @@ void connect(List *list, Node *deletedNode) {
  * @param list the List
  * @param position the position of the item in the list
  */
-void remove_Node(List *list, int position) {
+void removeNode(List *list, int position) {
     Node *temp = list->start;
     for (int i = 1; i < position; ++i) {
         temp = temp->next;
     }
-    connect(list, temp);
+    linkNodes(list, temp);
     free(temp);
     list->size--;
 }
