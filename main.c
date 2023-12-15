@@ -12,6 +12,7 @@ int main() {
     add(list,"asd",STRING);
     add(list,"af",STRING);
     printNodeData(list->end);
+    deleteList(list);
 
     return 0;
 }

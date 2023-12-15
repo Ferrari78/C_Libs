@@ -88,6 +88,8 @@ int searchData(List *list, void *data, enum types dataTypes) {
             } else if (temp->type_data == 3 && temp->data == data) {
                 position = i;
                 break;
+            }else{
+                return -1;
             }
         }
         temp = temp->next;
