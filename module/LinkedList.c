@@ -41,7 +41,7 @@ void add(List *list, void *data, enum types type_data) {
         new_node->before = list->end;
         new_node->next = NULL;
     }
-    printf("Node was added to List with value ");
+    //printf("Node was added to List with value ");
    // printNodeData(new_node);
     list->end = new_node;
     list->size++;
