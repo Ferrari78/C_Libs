@@ -7,11 +7,11 @@ The repo include two libraries:
 - [list.h](#LinkedList)
 
 ### StringLib
-|  | Param |Link|
-|--|--|--|
-| countUpperCases | char* string |[countUpperCases](#countUpperCases)|
-| countWords| char* string |[countWords](#countWords)|
-| mostLetter| char* string |[mostLetter](#mostLetter)|
+|                 | Param        | Link                                |
+|-----------------|--------------|-------------------------------------|
+| countUpperCases | char* string | [countUpperCases](#countUpperCases) |
+| countWords      | char* string | [countWords](#countWords)           |
+| mostLetter      | char* string | [mostLetter](#mostLetter)           |
 
 ### countUpperCases
 
