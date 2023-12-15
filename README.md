@@ -55,7 +55,7 @@ typedef struct {
 
 ```c
 char b[255] = "Nessie's are cute";
-printf("%c\n", mostLetter(b)->letter);  // e
+printf("%c", mostLetter(b)->letter);  // e
 printf("%d", mostLetter(b)->size);      // 4
 ```
 

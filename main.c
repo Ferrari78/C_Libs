@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include "list.h"
 #include "stringLib.h"
+#include "timeoperations.h"
 
 int main() {
 
     List *list = create_List();
-    char b[255] = "Nessie's are cute";
-    printf("%c\n", mostLetter(b)->letter);
-    printf("%d", mostLetter(b)->size);
+
 /*    int* a = (int *) 23;
     add(list, b, STRING);
     add(list,  a, INT);
