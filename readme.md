@@ -21,7 +21,7 @@ This function count the uppercase letters.
 **Input:** The function requires a string to work
 **Output:** The output is an integer
 
-    ```C
+    ```c
     char b[255] = "Hello World";
     printf("%c", countUpperCases(b));  // 2
     ```
