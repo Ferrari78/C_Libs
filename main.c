@@ -11,7 +11,7 @@ int main() {
     add(list,"Haallo",STRING);
     add(list,"asd",STRING);
     add(list,"af",STRING);
-    printNodeData(list->end->next);
+    printNodeData(list->end);
 
     return 0;
 }

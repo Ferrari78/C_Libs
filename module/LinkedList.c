@@ -133,7 +133,7 @@ Node* getNode(int position, List* list){
 
 void deleteList(List* list){
     for (int i = 0; i < list->size; ++i) {
-        free(getNode(i,list));
+        remove_Node(list,i);
     }
     free(list);
 }
