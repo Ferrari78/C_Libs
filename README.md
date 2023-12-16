@@ -2,9 +2,10 @@
 
 ## Summary
 
-The repo include two libraries:
-- [stringLib.h](#StringLib)
-- [list.h](#LinkedList)
+Two libraries are included in the repo:
+- [stringLib.h](#stringlib)
+- [list.h](#linkedlist)
+- [timeoperations.h](#timelib)
 
 ### StringLib
 |                 | Param        | Link                                |
@@ -60,3 +61,5 @@ printf("%d", mostLetter(b)->size);      // 4
 ```
 
 ## LinkedList
+
+## TimeLib
