@@ -1,4 +1,4 @@
-# Small C Lib
+# Small C Libs
 
 ## Summary
 
