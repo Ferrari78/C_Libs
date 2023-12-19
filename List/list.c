@@ -7,6 +7,7 @@
 #include <string.h>
 
 int debug = 0;
+
 /*
  * Create a list
  */
@@ -31,6 +32,7 @@ List *create_List() {
 void add(List *list, void *data, enum types type_data) {
 
     Node *new_node = malloc(sizeof(Node));
+    new_node->data = malloc(sizeof(void *));
     new_node->data = data;
     new_node->type_data = type_data;
 
@@ -43,7 +45,7 @@ void add(List *list, void *data, enum types type_data) {
         new_node->before = list->end;
         new_node->next = NULL;
     }
-    if(debug) {
+    if (debug) {
         printf("Node was added to List with value ");
         printNodeData(new_node);
     }
@@ -90,18 +92,16 @@ int searchData(List *list, void *data, enum types dataTypes) {
     for (int i = 1; i <= list->size; i++) {
         if (temp->type_data == dataTypes) {
             if (temp->type_data == 1 && temp->data == data) {
-                position = i;
                 break;
             } else if (temp->type_data == 2 && strcmp(temp->data, data) == 0) {
-                position = i;
                 break;
             } else if (temp->type_data == 3 && temp->data == data) {
-                position = i;
                 break;
-            } else if (temp->type_data > 4) {
+            } else {
                 return -1;
             }
         }
+        position++;
         temp = temp->next;
     }
     return position;
@@ -118,10 +118,10 @@ void printNodeData(Node *node) {
     }
     switch (node->type_data) {
         case 1:
-            printf("%d\n", *(int*) node->data);
+            printf("%d\n", *(int *) node->data);
             break;
         case 2:
-            printf("%s\n", (char*) node->data);
+            printf("%s\n", (char *) node->data);
             break;
         case 3:
             printf("%f\n", *(float *) node->data);

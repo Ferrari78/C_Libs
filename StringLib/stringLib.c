@@ -79,3 +79,4 @@ Letter *mostLetter(char *string) {
     return highestNode;
 }
 
+
