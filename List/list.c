@@ -118,13 +118,13 @@ void printNodeData(Node *node) {
     }
     switch (node->type_data) {
         case 1:
-            printf("%d\n", node->data);
+            printf("%d\n", *(int*) node->data);
             break;
         case 2:
-            printf("%s\n", node->data);
+            printf("%s\n", (char*) node->data);
             break;
         case 3:
-            printf("%f\n", node->data);
+            printf("%f\n", *(float *) node->data);
             break;
         default:
             printf("(not supported Datatype)\n");

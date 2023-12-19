@@ -40,7 +40,7 @@ Letter *mostLetter(char *string) {
     List *list = create_List();
 
     for (int i = 0; string[i] != '\0'; i++) {
-        if( string[i] == ' '){
+        if (string[i] == ' ') {
             continue;
         }
         string[i] = tolower(string[i]);

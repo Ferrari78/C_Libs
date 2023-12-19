@@ -30,6 +30,8 @@ struct tm timeInput(enum TimeInput timeInput) {
         case TIME_DATE:
             scanf("%2d.%2d.%4d %2d:%2d", &time1.tm_mday, &time1.tm_mon - 1, &year, &time1.tm_hour, &time1.tm_min);
             break;
+        case NOW:
+            break;
     }
 
     if ((int) DATE <= (int) timeInput) {

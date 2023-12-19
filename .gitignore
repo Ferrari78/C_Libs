@@ -49,3 +49,4 @@ Mkfile.old
 dkms.conf
 .idea
 cmake-build-debug/
+main.c
