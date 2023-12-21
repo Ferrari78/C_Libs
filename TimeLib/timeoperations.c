@@ -6,11 +6,13 @@
 #include <time.h>
 #include <stdio.h>
 
+const TimeOfRun runTime_default = {0, 0, 0, 0};
+
 struct tm timeInput(enum TimeInput timeInput) {
 
     time_t t = time(NULL);
     struct tm time1;
-    int year=0;
+    int year = 0;
 
     time1 = *localtime(&t);
 
@@ -39,5 +41,18 @@ struct tm timeInput(enum TimeInput timeInput) {
     }
 
     return time1;
+}
+
+void getRunTime(TimeOfRun *timeOfRun) {
+
+    if (!timeOfRun->isTimeStart) {
+        timeOfRun->start = clock();
+        timeOfRun->isTimeStart++;
+    } else {
+        timeOfRun->end = clock();
+        timeOfRun->timeOfRun = ((float) (timeOfRun->end - timeOfRun->start)) / CLOCKS_PER_SEC;
+        printf("Run time: %fs\n", timeOfRun->timeOfRun);
+    }
+
 }
 
