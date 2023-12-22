@@ -11,8 +11,8 @@ int debug = 0;
 /*
  * Create a list
  */
-List *create_List() {
-    List *list = (List *) malloc(sizeof(List));
+List *createList() {
+    List *list = malloc(sizeof(List));
     list->size = 0;
     list->start = NULL;
     list->end = NULL;
@@ -32,7 +32,7 @@ List *create_List() {
 void add(List *list, void *data, enum types type_data) {
 
     Node *new_node = malloc(sizeof(Node));
-    new_node->data = malloc(sizeof(void *));
+    //new_node->data = malloc(sizeof(void *));
     new_node->data = data;
     new_node->type_data = type_data;
 
@@ -81,7 +81,10 @@ void removeNode(List *list, int position) {
     for (int i = 1; i < position; ++i) {
         temp = temp->next;
     }
+
     linkNodes(list, temp);
+    printNodeData(temp);
+    free(temp->data);
     free(temp);
     list->size--;
 }

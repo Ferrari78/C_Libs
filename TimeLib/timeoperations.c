@@ -43,11 +43,11 @@ struct tm timeInput(enum TimeInput timeInput) {
     return time1;
 }
 
-void getRunTime(TimeOfRun *timeOfRun) {
 
+void getRunTime(TimeOfRun *timeOfRun, enum RunStartEnd startEnd) {
+    timeOfRun->isTimeStart = startEnd;
     if (!timeOfRun->isTimeStart) {
         timeOfRun->start = clock();
-        timeOfRun->isTimeStart++;
     } else {
         timeOfRun->end = clock();
         timeOfRun->timeOfRun = ((float) (timeOfRun->end - timeOfRun->start)) / CLOCKS_PER_SEC;

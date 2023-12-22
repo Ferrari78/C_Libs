@@ -37,7 +37,7 @@ int countWords(const char *string) {
 }
 
 Letter *mostLetter(char *string) {
-    List *list = create_List();
+    List *list = createList();
 
     for (int i = 0; string[i] != '\0'; i++) {
         if (string[i] == ' ') {

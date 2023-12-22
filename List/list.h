@@ -5,6 +5,10 @@
 #ifndef LINKEDLIST_LIST_H
 #define LINKEDLIST_LIST_H
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
 extern int debug;
 
 enum types {
@@ -28,7 +32,7 @@ typedef struct list {
 } List;
 
 
-List *create_List();
+List *createList();
 
 void add(List *list, void *data, enum types type_data);
 

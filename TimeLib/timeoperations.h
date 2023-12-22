@@ -11,11 +11,16 @@
 
 enum TimeInput {
     NOW,
-    S_TIME ,     // HH:MM
+    S_TIME,     // HH:MM
     F_TIME,     // HH:MM:SS
     DATE,       // DD.MM.YYYY
     //DATE_FULL, // Wortbasierte Eingabe
     TIME_DATE,  // DD.MM.YYYY HH:MM
+};
+
+enum RunStartEnd {
+    Start = 0,
+    End
 };
 
 typedef struct {
@@ -23,11 +28,12 @@ typedef struct {
     clock_t end;
     float timeOfRun;
     int isTimeStart;
-}TimeOfRun;
+} TimeOfRun;
 
 extern const TimeOfRun runTime_default;
 
 struct tm timeInput(enum TimeInput timeInput);
-void getRunTime(TimeOfRun *timeOfRun);
+
+void getRunTime(TimeOfRun *timeOfRun, enum RunStartEnd startEnd);
 
 #endif //LINKEDLIST_TIMEOPERATIONS_H
