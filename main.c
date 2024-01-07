@@ -8,13 +8,13 @@ int main() {
     List *list = createList();
 
     int a = 23;
-    char *b = malloc(sizeof(char) * 4);
-    b = "hallo";
+    char *stringa1 = malloc(255 * sizeof(char));
+    strcpy(stringa1, "Hallo");
 
     add(list, &a, INT);
-    add(list, b, STRING);
+    add(list, stringa1, STRING);
     printNodeData(list->end);
     deleteList(list);
-    printf("%s", b);
+    printf("%s", stringa1);
     return 0;
 }

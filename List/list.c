@@ -83,7 +83,7 @@ void removeNode(List *list, int position) {
     }
 
     linkNodes(list, temp);
-    if (temp->type_data == STRUCT) {
+    if (temp->type_data == STRUCT || temp->type_data == STRING) {
         free(temp->data);
     }
     free(temp);
