@@ -83,8 +83,9 @@ void removeNode(List *list, int position) {
     }
 
     linkNodes(list, temp);
-    printNodeData(temp);
-    free(temp->data);
+    if (temp->type_data != FLOAT && temp->type_data != INT) {
+        free(temp->data);
+    }
     free(temp);
     list->size--;
 }

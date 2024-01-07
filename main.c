@@ -5,14 +5,12 @@
 
 int main() {
 
-    List *list = create_List();
+    List *list = createList();
 
-    int a =  23;
-    add(list,  &a, INT);
-    add(list,&"Hallo1",STRING);
-    add(list,&"Hallo",STRING);
-    add(list,&"asd",STRING);
-    add(list,&"af",STRING);
+    int a = 23;
+    char hallo[] = "hallo";
+    add(list, &a, INT);
+    add(list, hallo, STRING);
     printNodeData(list->end);
     deleteList(list);
 
