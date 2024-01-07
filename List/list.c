@@ -83,11 +83,15 @@ void removeNode(List *list, int position) {
     }
 
     linkNodes(list, temp);
-    if (temp->type_data != FLOAT && temp->type_data != INT) {
+    if (temp->type_data == STRUCT) {
         free(temp->data);
     }
     free(temp);
     list->size--;
+    if (list->size == 0) {
+        list->start = NULL;
+        list->end = NULL;
+    }
 }
 
 int searchData(List *list, void *data, enum types dataTypes) {
@@ -148,8 +152,8 @@ Node *getNode(int position, List *list) {
 }
 
 void deleteList(List *list) {
-    for (int i = 0; i < list->size; ++i) {
-        removeNode(list, i);
+    while (list->size >= 1) {
+        removeNode(list, 0);
     }
     free(list);
 }
