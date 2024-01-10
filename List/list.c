@@ -63,10 +63,13 @@ void add(List *list, void *data, enum types type_data) {
 void linkNodes(List *list, Node *node) {
     if (list->start == node) {
         list->start = node->next;
+        node->next->before = NULL;
     } else if (list->end == node) {
         list->end = node->before;
+        node->before->next = NULL;
     } else {
-        node->before = node->next;
+        node->before->next = node->next;
+        node->next->before = node->before;
     }
 }
 
